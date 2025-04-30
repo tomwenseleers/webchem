@@ -177,7 +177,7 @@ get_ri_xml <-
     }
     # check for existence of record
       qurl <- URLencode(paste0(baseurl, "?", from_str, "=", gsub(" ","+", query), "&Units=SI"))
-      webchem_sleep(type = 'scrape')
+      # webchem_sleep(type = 'scrape')
       if (verbose) webchem_message("query", query, appendLF = FALSE)
       res <- try_url(qurl)
       if (inherits(res, "try-error")) {
@@ -279,7 +279,7 @@ scrape_RI_table <- function(ID, type, polarity, temp_prog,
     type_str <- toupper(paste(type, "RI", polarity, temp_prog, sep = "-"))
     baseurl <- "https://webbook.nist.gov/cgi/cbook.cgi"
     qurl <- paste0(baseurl, "?ID=", ID, "&Units-SI&Mask=2000&Type=", type_str)
-    webchem_sleep(type = 'scrape')
+    # webchem_sleep(type = 'scrape')
     if (verbose) webchem_message("query", ID, appendLF = FALSE)
     res2 <- try_url(qurl)
     if (inherits(res2, "try-error")) {
